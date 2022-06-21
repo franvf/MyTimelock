@@ -17,13 +17,13 @@ contract GovernorContract is
     GovernorVotesQuorumFraction, 
     GovernorTimelockControl {
 
-    //GovernorSettings: Wait 0 blocks to allow votes, is possible to vote during 1 week. 
+    //GovernorSettings: Wait 0 blocks to allow votes, is possible to vote during a week. 
     // The third parameter is the number of votes possesed by an account to make a proposal
 
-    //GovernorVotesQuorumFraction: 1 quorum = 4% of total supply
+    //GovernorVotesQuorumFraction: 1 quorum = 4% of total supply (We need the 4% of total supply to approve a proposal)
     constructor(IVotes tokenAddress, TimelockController timelock) 
         Governor("My governor")
-        GovernorSettings(0, 2, 0) 
+        GovernorSettings(0, 45818 , 0) 
         GovernorVotes(tokenAddress)
         GovernorVotesQuorumFraction(4)
         GovernorTimelockControl(timelock) {}
