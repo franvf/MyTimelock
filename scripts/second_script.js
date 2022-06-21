@@ -25,7 +25,7 @@ module.exports = async() => {
     console.log("Encoded value: ", functionEncodedValue)
     
     console.log('Proposing value...')
-    await governorcontract.propose([boxaddress], [0], [functionEncodedValue], 'Proposing value 19')
+    await governorcontract.propose([boxaddress], [0], [functionEncodedValue], 'Proposing value 18')
     console.log('Value proposed')
 
     const governorEvents = await governorcontract.getPastEvents('ProposalCreated')
@@ -49,7 +49,7 @@ module.exports = async() => {
 
     // ***** ENQUEUE THE TRANSACTION *****
     console.log("Enqueuing transaction...")
-    const descriptionHashed = ethers.utils.keccak256(ethers.utils.toUtf8Bytes('Proposing value 19')) //Hashing the description of the transaction
+    const descriptionHashed = ethers.utils.keccak256(ethers.utils.toUtf8Bytes('Proposing value 18')) //Hashing the description of the transaction
     await governorcontract.queue([boxaddress], [0], [functionEncodedValue], descriptionHashed )
     console.log('Transaction enqueued')
 
